@@ -12,6 +12,8 @@ public class AppStart {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
         NameProvider nameProvider = ctx.getBean(NameProvider.class);
 
+        System.out.println("-------------------------------");
         System.out.println("name: "+nameProvider.getName());
+        System.out.println("-------------------------------");
     }
 }

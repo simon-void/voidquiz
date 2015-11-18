@@ -7,6 +7,6 @@ import net.simonvoid.provider.NameProvider;
  */
 public class NameProviderImpl implements NameProvider {
     public String getName() {
-        return "hardcoded Name";
+        return "Stephan Schröder";
     }
 }
