@@ -1,0 +1,16 @@
+<Quiz name="Stephan Schröder Quiz" numberOfJokers="3">
+    <Round>
+        <Question>Which web language was never used by Stephan?</Question>
+        <Answer isCorrect="true">Typescript</Answer>
+        <Answer isCorrect="false">Javascript</Answer>
+        <Answer isCorrect="false">Dart</Answer>
+        <Answer isCorrect="false">Java (via GWT)</Answer>
+    </Round>
+    <Round>
+        <Question>What was the first Language being taught to Stephan in university?</Question>
+        <Answer isCorrect="true">SML</Answer>
+        <Answer isCorrect="false">C</Answer>
+        <Answer isCorrect="false">Java</Answer>
+        <Answer isCorrect="false">Python</Answer>
+    </Round>
+</Quiz>

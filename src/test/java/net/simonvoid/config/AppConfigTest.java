@@ -2,7 +2,7 @@ package net.simonvoid.config;
 
 import static org.testng.Assert.assertNotNull;
 
-import net.simonvoid.provider.NameProvider;
+import net.simonvoid.provider.QuizProvider;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.annotations.BeforeMethod;
@@ -21,8 +21,8 @@ public class AppConfigTest {
 
     @Test
     public void testNameProviderBeanInitialised() {
-        NameProvider nameProvider = ctx.getBean(NameProvider.class);
+        QuizProvider quizProvider = ctx.getBean(QuizProvider.class);
 
-        assertNotNull(nameProvider, "nameProvider");
+        assertNotNull(quizProvider, "quizProvider");
     }
 }
