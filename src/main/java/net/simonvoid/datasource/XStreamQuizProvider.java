@@ -6,12 +6,9 @@ import net.simonvoid.dto.AnswerDto;
 import net.simonvoid.dto.QuestionDto;
 import net.simonvoid.dto.QuizDto;
 import net.simonvoid.dto.RoundDto;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -53,12 +50,17 @@ public class XStreamQuizProvider implements QuizProvider {
 
     private QuizDto loadQuizFromFile()
     throws IOException {
-        ClassLoader classLoader = XStreamQuizProvider.class.getClassLoader();
-        URL url = classLoader.getResource("questions.xml");
-        File file = new File(url.getFile());
-        String filecontent = FileUtils.readFileToString(file, "UTF-8");
+        String filecontent = loadFileContents("questions.xml");
         QuizDto quiz = deserializeXML(filecontent);
         return quiz;
+    }
+
+    private String loadFileContents(String path)
+    throws IOException {
+        ClassLoader classLoader = XStreamQuizProvider.class.getClassLoader();
+        URL url = classLoader.getResource(path);
+        String filecontent = IOUtils.toString(url.openStream(), "UTF-8");
+        return filecontent;
     }
 
     //package-scoped to make it testable
