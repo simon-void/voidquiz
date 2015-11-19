@@ -1,0 +1,72 @@
+<Quiz name="Stephan Schröder Quiz" numberOfJokers="3">
+    <Round>
+        <Question>A book in which language couldn't Stephan read?</Question>
+        <Answer isCorrect="true">Spanish</Answer>
+        <Answer>French</Answer>
+        <Answer>German</Answer>
+        <Answer>Swedish</Answer>
+    </Round>
+    <Round>
+        <Question>When did Stephan move to Malmö?</Question>
+        <Answer>3.2012</Answer>
+        <Answer isCorrect="true">9.2012</Answer>
+        <Answer>3.2013</Answer>
+        <Answer>9.2013</Answer>
+    </Round>
+    <Round>
+        <Question>Which Dan (blackbelt level) does Stephan have in Aikido?</Question>
+        <Answer>1. Dan</Answer>
+        <Answer isCorrect="true">2. Dan</Answer>
+        <Answer>3. Dan</Answer>
+        <Answer>4. Dan</Answer>
+    </Round>
+    <Round>
+        <Question>Which JVM language apart from Java did Stephan already work with?</Question>
+        <Answer isCorrect="true">Groovy</Answer>
+        <Answer>Scala</Answer>
+        <Answer>Closure</Answer>
+        <Answer>JRuby</Answer>
+    </Round>
+    <Round>
+        <Question>How many days of holiday did Stephan have at his previous job?</Question>
+        <Answer isCorrect="true">29</Answer>
+        <Answer>30</Answer>
+        <Answer>25</Answer>
+        <Answer>32</Answer>
+    </Round>
+    <Round>
+        <Question>Which 3D modeling application has Stephan used for private projects?</Question>
+        <Answer isCorrect="true">Blender</Answer>
+        <Answer>3D Studio Max</Answer>
+        <Answer>Sketch Up</Answer>
+        <Answer>ZBrush</Answer>
+    </Round>
+    <Round>
+        <Question>Which of these libraries didn't Stephan look into?</Question>
+        <Answer isCorrect="true">Struts</Answer>
+        <Answer>OSGi</Answer>
+        <Answer>Hibernate</Answer>
+        <Answer>Spring DI</Answer>
+    </Round>
+    <Round>
+        <Question>What was the first programming language being taught to Stephan in university?</Question>
+        <Answer isCorrect="true">SML</Answer>
+        <Answer>C</Answer>
+        <Answer>Java</Answer>
+        <Answer>Python</Answer>
+    </Round>
+    <Round>
+        <Question>Which programming language with a 'c' does Stephan like the best by far?</Question>
+        <Answer isCorrect="true">C#</Answer>
+        <Answer>Javascript</Answer>
+        <Answer>C++</Answer>
+        <Answer>Objective-C</Answer>
+    </Round>
+    <Round>
+        <Question>Which web language was never used by Stephan?</Question>
+        <Answer isCorrect="true">Typescript</Answer>
+        <Answer>Javascript</Answer>
+        <Answer>Dart</Answer>
+        <Answer>Java (via GWT)</Answer>
+    </Round>
+</Quiz>

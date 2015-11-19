@@ -60,7 +60,6 @@
 
     <build>
         <plugins>
-
             <!-- Set a JDK compiler level -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -28,6 +28,15 @@ public class RoundDto {
         return Collections.unmodifiableList(answers);
     }
 
+    public int getCorrectAnswerIndex() {
+        for(int i=0; i<answers.size(); i++) {
+            if(answers.get(i).isCorrect()) {
+                return i;
+            }
+        }
+        throw new IllegalStateException("no correct answer for question "+question.getText());
+    }
+
     public void setAnswers(List<AnswerDto> answers) {
         this.answers = answers;
     }

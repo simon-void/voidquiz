@@ -1,7 +1,8 @@
 package net.simonvoid.config;
 
 import net.simonvoid.dto.QuizDto;
-import net.simonvoid.provider.QuizProvider;
+import net.simonvoid.view.GuiWrapper;
+import net.simonvoid.datasource.QuizProvider;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -9,13 +10,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class AppStart {
     public static void main(String[] args) {
-        //init Spring Dependency Injection and instanciate the gui provider
+        //init Spring Dependency Injection and instanciate the gui datasource
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-        QuizProvider quizProvider = ctx.getBean(QuizProvider.class);
+        GuiWrapper guiWrapper = ctx.getBean(GuiWrapper.class);
 
-        QuizDto quiz = quizProvider.getQuiz();
-        System.out.println("-------------------------------");
-        System.out.println(quiz.toString());
-        System.out.println("-------------------------------");
+        guiWrapper.startupGUI();
     }
 }

@@ -1,4 +1,4 @@
-package net.simonvoid.provider;
+package net.simonvoid.datasource;
 
 import net.simonvoid.dto.QuizDto;
 

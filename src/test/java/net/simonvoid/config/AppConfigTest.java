@@ -2,7 +2,7 @@ package net.simonvoid.config;
 
 import static org.testng.Assert.assertNotNull;
 
-import net.simonvoid.provider.QuizProvider;
+import net.simonvoid.datasource.QuizProvider;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.annotations.BeforeMethod;

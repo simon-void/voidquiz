@@ -1,7 +1,9 @@
 package net.simonvoid.config;
 
-import net.simonvoid.provider.QuizProvider;
-import net.simonvoid.provider.impl.XStreamQuizProviderImpl;
+import net.simonvoid.view.GuiWrapper;
+import net.simonvoid.datasource.QuizProvider;
+import net.simonvoid.view.swing.SwingGuiWrapper;
+import net.simonvoid.datasource.XStreamQuizProvider;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,12 @@ public class AppConfig {
     @Bean @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     public QuizProvider quizProvider()
     {
-        return new XStreamQuizProviderImpl();
+        return new XStreamQuizProvider();
+    }
+
+    @Bean @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
+    public GuiWrapper guiWrapper()
+    {
+        return new SwingGuiWrapper();
     }
 }

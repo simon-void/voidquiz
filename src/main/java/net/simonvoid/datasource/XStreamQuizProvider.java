@@ -1,4 +1,4 @@
-package net.simonvoid.provider.impl;
+package net.simonvoid.datasource;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.reflection.PureJavaReflectionProvider;
@@ -6,12 +6,13 @@ import net.simonvoid.dto.AnswerDto;
 import net.simonvoid.dto.QuestionDto;
 import net.simonvoid.dto.QuizDto;
 import net.simonvoid.dto.RoundDto;
-import net.simonvoid.provider.QuizProvider;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,11 +20,11 @@ import java.util.List;
 /**
  * Created by stephan on 18.11.2015.
  */
-public class XStreamQuizProviderImpl implements QuizProvider {
+public class XStreamQuizProvider implements QuizProvider {
     /**one configured XStream instance*/
     final private XStream xstream;
 
-    public XStreamQuizProviderImpl()
+    public XStreamQuizProvider()
     {
         //configure one XStream instance to process all DTO classes
         xstream = new XStream(new PureJavaReflectionProvider());
@@ -52,8 +53,9 @@ public class XStreamQuizProviderImpl implements QuizProvider {
 
     private QuizDto loadQuizFromFile()
     throws IOException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("questions.xml").getFile());
+        ClassLoader classLoader = XStreamQuizProvider.class.getClassLoader();
+        URL url = classLoader.getResource("questions.xml");
+        File file = new File(url.getFile());
         String filecontent = FileUtils.readFileToString(file, "UTF-8");
         QuizDto quiz = deserializeXML(filecontent);
         return quiz;
