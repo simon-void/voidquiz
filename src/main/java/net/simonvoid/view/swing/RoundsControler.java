@@ -1,9 +1,10 @@
 package net.simonvoid.view.swing;
 
-import net.simonvoid.dto.xml.QuizDto;
-import net.simonvoid.dto.xml.RoundDto;
+import net.simonvoid.data.model.xml.QuizDto;
+import net.simonvoid.data.model.xml.RoundDto;
 import net.simonvoid.view.listener.EventListenerOwner;
 import net.simonvoid.view.listener.QuizResultListener;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.swing.*;
 import java.awt.*;
@@ -96,7 +97,7 @@ public class RoundsControler extends EventListenerOwner<QuizResultListener> {
         );
 
         roundPanel.removeAll();
-        roundPanel.add(roundControler.viewPanel);
+        roundPanel.add(roundControler.getView());
         //repaint the view
         repaintView();
     }
@@ -111,6 +112,6 @@ public class RoundsControler extends EventListenerOwner<QuizResultListener> {
     }
 
     private void repaintView() {
-        JComponentUtils.forceRepaint(viewPanel);
+        ComponentUtils.forceRepaint(viewPanel);
     }
 }

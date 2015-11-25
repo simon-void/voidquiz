@@ -1,11 +1,11 @@
-package net.simonvoid.datasource;
+package net.simonvoid.data.service;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.reflection.PureJavaReflectionProvider;
-import net.simonvoid.dto.xml.AnswerDto;
-import net.simonvoid.dto.xml.QuestionDto;
-import net.simonvoid.dto.xml.QuizDto;
-import net.simonvoid.dto.xml.RoundDto;
+import net.simonvoid.data.model.xml.AnswerDto;
+import net.simonvoid.data.model.xml.QuestionDto;
+import net.simonvoid.data.model.xml.QuizDto;
+import net.simonvoid.data.model.xml.RoundDto;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -17,11 +17,11 @@ import java.util.List;
 /**
  * Created by stephan on 18.11.2015.
  */
-public class XStreamQuizProvider implements QuizProvider {
+public class XStreamQuizProviderServiceImpl implements QuizProviderService {
     /**one configured XStream instance*/
     final private XStream xstream;
 
-    public XStreamQuizProvider()
+    public XStreamQuizProviderServiceImpl()
     {
         //configure one XStream instance to process all DTO classes
         xstream = new XStream(new PureJavaReflectionProvider());
@@ -57,7 +57,7 @@ public class XStreamQuizProvider implements QuizProvider {
 
     private String loadFileContents(String path)
     throws IOException {
-        ClassLoader classLoader = XStreamQuizProvider.class.getClassLoader();
+        ClassLoader classLoader = XStreamQuizProviderServiceImpl.class.getClassLoader();
         URL url = classLoader.getResource(path);
         String filecontent = IOUtils.toString(url.openStream(), "UTF-8");
         return filecontent;

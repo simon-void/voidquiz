@@ -1,7 +1,8 @@
 package net.simonvoid.view.swing;
 
-import net.simonvoid.dto.xml.QuizDto;
-import net.simonvoid.datasource.QuizProvider;
+import net.simonvoid.data.model.xml.QuizDto;
+import net.simonvoid.data.service.HighscoreService;
+import net.simonvoid.data.service.QuizProviderService;
 import net.simonvoid.view.GuiWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,16 +15,19 @@ import java.awt.event.ActionEvent;
  */
 public class SwingGuiWrapper implements GuiWrapper {
     @Autowired
-    private QuizProvider quizProvider;
+    private QuizProviderService quizProvider;
+    @Autowired
+    private HighscoreService highscoreService;
+
     private JFrame frame;
-    private JPanel activePanel;
+    private JPanel viewPanel;
 
     public SwingGuiWrapper() {
+        viewPanel = new JPanel();
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        activePanel = new JPanel();
-        JScrollPane visiblePane = new JScrollPane(activePanel);
+        JScrollPane visiblePane = new JScrollPane(viewPanel);
         frame.setContentPane(visiblePane);
         frame.setSize(new Dimension(550, 270));
     }
@@ -50,15 +54,15 @@ public class SwingGuiWrapper implements GuiWrapper {
     }
 
     private void setActiveComponent(JComponent component) {
-        activePanel.removeAll();
-        activePanel.add(JComponentUtils.wrapInFlowLayoutPanel(component, FlowLayout.CENTER, 0, 0));
+        viewPanel.removeAll();
+        viewPanel.add(ComponentUtils.wrapInFlowLayoutPanel(component, FlowLayout.CENTER, 0, 0));
         repaintView();
     }
 
     private JPanel getStartPanel(final QuizDto quiz) {
         JPanel panel = new JPanel();
         JButton button = new JButton("Start with "+quiz.getName());
-        panel.add(JComponentUtils.wrapInFlowLayoutPanel(button, FlowLayout.CENTER, 10, 50));
+        panel.add(ComponentUtils.wrapInFlowLayoutPanel(button, FlowLayout.CENTER, 10, 50));
 
         button.addActionListener(
                 (ActionEvent e)->{
@@ -79,9 +83,11 @@ public class SwingGuiWrapper implements GuiWrapper {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         JLabel summary = new JLabel(numberOfCorrectAnswers+" answer(s) out of "+totalNumberOfAnswers+" were correct.");
+        HighscoreControler highscoreControler = new HighscoreControler(highscoreService, numberOfCorrectAnswers);
         JButton button = new JButton("Restart with "+quiz.getName());
-        panel.add(JComponentUtils.wrapInFlowLayoutPanel(summary, FlowLayout.CENTER, 10, 50));
-        panel.add(JComponentUtils.wrapInFlowLayoutPanel(button, FlowLayout.CENTER, 10, 0));
+        panel.add(ComponentUtils.wrapInFlowLayoutPanel(summary, FlowLayout.CENTER, 10, 10));
+        panel.add(ComponentUtils.wrapInFlowLayoutPanel(highscoreControler.getView(), FlowLayout.CENTER, 10, 15));
+        panel.add(ComponentUtils.wrapInFlowLayoutPanel(button, FlowLayout.CENTER, 10, 10));
 
         button.addActionListener(
                 (ActionEvent e)->{
@@ -99,7 +105,6 @@ public class SwingGuiWrapper implements GuiWrapper {
     }
 
     private void repaintView() {
-        activePanel.validate();
-        activePanel.repaint();
+        ComponentUtils.forceRepaint(viewPanel);
     }
 }

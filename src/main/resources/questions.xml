@@ -27,13 +27,6 @@
         <Answer>Closure</Answer>
         <Answer>JRuby</Answer>
     </Round>
-    <!--Round>
-        <Question>How many days of holiday did Stephan have at his previous job?</Question>
-        <Answer isCorrect="true">29</Answer>
-        <Answer>30</Answer>
-        <Answer>25</Answer>
-        <Answer>32</Answer>
-    </Round-->
     <Round>
         <Question>Which 3D modeling application has Stephan used for private projects?</Question>
         <Answer isCorrect="true">Blender 3D</Answer>

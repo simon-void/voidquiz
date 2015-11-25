@@ -14,7 +14,7 @@ public class JockerControler extends EventListenerOwner<JokerSelectedListener> {
     private int numberOfTotalJokers;
     private int numberOfJokersLeft;
     private JPanel viewPanel;
-    JButton useJokerButton;
+    private JButton useJokerButton;
 
     public JockerControler(int numberOfJockers) {
         numberOfJokersLeft = numberOfJockers;

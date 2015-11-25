@@ -1,4 +1,4 @@
-package net.simonvoid.dto.xml;
+package net.simonvoid.data.model.xml;
 
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamConverter;

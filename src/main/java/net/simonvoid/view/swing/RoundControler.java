@@ -1,12 +1,14 @@
 package net.simonvoid.view.swing;
 
-import net.simonvoid.dto.xml.AnswerDto;
-import net.simonvoid.dto.xml.RoundDto;
+import net.simonvoid.data.model.xml.AnswerDto;
+import net.simonvoid.data.model.xml.RoundDto;
 import net.simonvoid.view.listener.EventListenerOwner;
 import net.simonvoid.view.listener.RoundAnsweredListener;
+import org.springframework.stereotype.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -16,15 +18,19 @@ import java.util.List;
  * Created by stephan on 19.11.2015.
  */
 public class RoundControler  extends EventListenerOwner<RoundAnsweredListener> {
-    JPanel viewPanel;
-    Boolean roundAnsweredCorrectly;
-    List<JButton> twoWrongAnswerButtons;
+    private JPanel viewPanel;
+    private Boolean roundAnsweredCorrectly;
+    private List<JButton> twoWrongAnswerButtons;
 
     public RoundControler(RoundDto round, int questionNumber) {
         viewPanel = new JPanel();
         viewPanel.setLayout(new BoxLayout(viewPanel, BoxLayout.Y_AXIS));
 
         createLayout(round, questionNumber);
+    }
+
+    public Component getView() {
+        return viewPanel;
     }
 
     private void createLayout(RoundDto round, int questionNumber) {

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class AppStart {
     public static void main(String[] args) {
-        //init Spring Dependency Injection and instanciate the gui datasource
+        //init Spring Dependency Injection and instanciate the gui service
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
         GuiWrapper guiWrapper = ctx.getBean(GuiWrapper.class);
 
