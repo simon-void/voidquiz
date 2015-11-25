@@ -1,7 +1,7 @@
 package net.simonvoid.view.swing;
 
-import net.simonvoid.dto.AnswerDto;
-import net.simonvoid.dto.RoundDto;
+import net.simonvoid.dto.xml.AnswerDto;
+import net.simonvoid.dto.xml.RoundDto;
 import net.simonvoid.view.listener.EventListenerOwner;
 import net.simonvoid.view.listener.RoundAnsweredListener;
 

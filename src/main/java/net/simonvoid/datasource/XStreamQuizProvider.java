@@ -2,10 +2,10 @@ package net.simonvoid.datasource;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.reflection.PureJavaReflectionProvider;
-import net.simonvoid.dto.AnswerDto;
-import net.simonvoid.dto.QuestionDto;
-import net.simonvoid.dto.QuizDto;
-import net.simonvoid.dto.RoundDto;
+import net.simonvoid.dto.xml.AnswerDto;
+import net.simonvoid.dto.xml.QuestionDto;
+import net.simonvoid.dto.xml.QuizDto;
+import net.simonvoid.dto.xml.RoundDto;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;

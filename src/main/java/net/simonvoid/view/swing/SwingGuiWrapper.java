@@ -1,6 +1,6 @@
 package net.simonvoid.view.swing;
 
-import net.simonvoid.dto.QuizDto;
+import net.simonvoid.dto.xml.QuizDto;
 import net.simonvoid.datasource.QuizProvider;
 import net.simonvoid.view.GuiWrapper;
 import org.springframework.beans.factory.annotation.Autowired;

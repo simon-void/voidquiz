@@ -1,8 +1,6 @@
 package net.simonvoid.config;
 
-import net.simonvoid.dto.QuizDto;
 import net.simonvoid.view.GuiWrapper;
-import net.simonvoid.datasource.QuizProvider;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
